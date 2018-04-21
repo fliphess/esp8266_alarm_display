@@ -1,0 +1,75 @@
+######################################################
+## Log settings                                     ##
+######################################################
+
+log_file: "/tmp/mqtt_alarm.log"
+
+######################################################
+## MQTT Server Settings                             ##
+######################################################
+
+mqtt_host: "mqtt.local"
+mqtt_port: 8883
+
+mqtt_ssl: true
+mqtt_ca_certs: "/etc/ssl/cert.pem"
+
+mqtt_username: "admin"
+mqtt_password: "assword"
+
+
+######################################################
+## MQTT Topics                                      ##
+######################################################
+
+# Home assistant alarm state topic
+state_topic: "home/alarm"
+
+# Home assistant alarm set topic
+command_topic: "home/alarm/set"
+
+# RFID verification topic (for rfid tags)
+rfid_auth_topic: "home/alarm/rfid"
+
+# Alarm auth outgoing verification topic, on which the hostname is appended for display specific comms
+display_topic: "home/alarm/display"
+
+######################################################
+## Actions                                          ##
+######################################################
+
+# Actions performed when authorized
+actions:
+  1: "DISARMED"
+  2: "ARMED_HOME"
+  3: "ARMED_AWAY"
+
+
+######################################################
+## Tokens                                           ##
+######################################################
+
+tokens:
+  - name: Flip
+    token_uid: "AB12CD34"
+    alarmcode: "0123456"
+    timeslot: "always"
+    dateslot: "always"
+
+  - name: Buuf
+    token_uid: 'A1B2C3D4'
+    alarmcode: "123456789"
+    timeslot: "00:00|22:59"
+    dateslot: "always"
+
+  - name: Alice
+    token_uid: 'B12C23D45'
+    alarmcode: "123456789"
+    timeslot: "always"
+    dateslot: "2-2-2018|3-2-2018"
+
+  - name: Bob
+    token_uid: '123456'
+    alarmcode: "123456789"
+    timeslot: 'never'
+
