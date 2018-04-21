@@ -6,9 +6,9 @@ This little tool consists of an arduino sketch to flash onto your nodemcu and a 
 
 I use it on a nodemcu combined with a `MPC23017` GPIO expansion board to add the additional pins for my 4x3 matrix keypad and a `MFRC522` RFID tag reader.
 
-The authentication part is done using an mqtt listener server written in python that looks up the UID of the RFID token and the passcode in it's yaml settings configuration.
-At the moment the alarmcode and the uid are send in plaintext to an MQTT topic. For me this is not secure enought for a depending security system,
-so I plan to add some psk encryption or use mqtt tls to prevent the uid and passcode to be send in plain text over the WIFI soon, but I'm still searching for a lightweight library that runs smoothly on the nodemcu.
+The authentication part is done using a mqtt listener server written in python that looks up the UID of the RFID token and the passcode in it's yaml settings configuration.
+At the moment the alarmcode and the uid are send in plaintext to an MQTT topic. For me this is not safe enough for a "security" system,
+so I plan to add some psk encryption or use mqtt tls to prevent the uid and passcode to be send in plain text over the WIFI soon, but I'm still searching for some lightweight encryption libraries that run smoothly on the nodemcu.
 
 ## Setup
 
