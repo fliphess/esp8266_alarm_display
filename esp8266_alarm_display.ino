@@ -182,7 +182,7 @@ void print_password_prompt()
 {
 
     String stars = "  ";
-	for (int i=0; i < MAX_PASSWORD_LENGTH; i++) {
+    for (int i=0; i < MAX_PASSWORD_LENGTH; i++) {
         if (i < PASSWORD_POSITION) {
             stars += "*";
         }
@@ -349,6 +349,7 @@ bool mqtt_reconnect()
         Serial.printf("*** MQTT connection failed, giving up after %d tries ...\n", MQTT_RECONNECT_RETRIES);
         return false;
     }
+
     return true;
 }
 
@@ -409,8 +410,8 @@ void reset_input()
     Serial.println("Resetting Input");
 
     PASSWORD_SET = 0;
-	PASSWORD_POSITION = 0;
-	PASSWORD_GUESS[PASSWORD_POSITION] = STRING_TERMINATOR;
+    PASSWORD_POSITION = 0;
+    PASSWORD_GUESS[PASSWORD_POSITION] = STRING_TERMINATOR;
 
     RFID_UID_SET = 0;
 
