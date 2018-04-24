@@ -40,9 +40,9 @@ display_topic: "home/alarm/display"
 
 # Actions performed when authorized
 actions:
-  1: "DISARMED"
-  2: "ARMED_HOME"
-  3: "ARMED_AWAY"
+  1: "DISARM"
+  2: "ARM_HOME"
+  3: "ARM_AWAY"
 
 
 ######################################################
