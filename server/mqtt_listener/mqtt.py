@@ -62,15 +62,10 @@ class AlarmMQTTListener(mqtt.Client):
             self.logger.warn("Accepted token from {}, uid is: \"{}\"".format(token["name"], incoming_data["uid"]))
             mqttc.publish(
                 topic=response_topic,
-                payload=json.dumps(
-                    dict(
-                        access="GRANTED",
-                        uid=token["token_uid"],
-                        name=token["name"],
-                    )
-                )
+                payload=json.dumps(dict(access="GRANTED", uid=token["token_uid"], name=token["name"]))
             )
-            self._send_command(incoming_data["action"])
+            self._send_command(mqttc, incoming_data["action"])
+
         else:
             self.logger.warn("Denied alarmcode from {}, uid is: \"{}\"".format(name, incoming_data["uid"]))
             mqttc.publish(
@@ -78,7 +73,7 @@ class AlarmMQTTListener(mqtt.Client):
                 payload=json.dumps(dict(access="DENIED", uid=incoming_data["uid"], name=name))
             )
 
-    def _send_command(self, action):
+    def _send_command(self, mqttc, action):
         payload = self.settings.actions.get(action, None)
         if payload:
             time.sleep(5)
