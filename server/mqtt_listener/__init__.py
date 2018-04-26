@@ -12,9 +12,9 @@ def get_verbosity(verbosity):
     }.get(verbosity, logging.DEBUG)
 
 
-def get_logger(verbosity=2):
+def get_logger(verbosity=2, log_file="/tmp/mqtt_alarm.log"):
     log_format = "[%(asctime)s] %(name)s | %(funcName)-20s | %(levelname)s | %(message)s"
-    logging.basicConfig(filename="/tmp/mqtt_alarm_listener.log", level=logging.INFO, filemode="w", format=log_format)
+    logging.basicConfig(filename=log_file, level=logging.INFO, filemode="w", format=log_format)
     logger = logging.getLogger('mqtt_alarm_listener')
 
     stream_handler = logging.StreamHandler(sys.stderr)

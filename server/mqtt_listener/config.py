@@ -55,7 +55,6 @@ class Token(dict):
 
 class Settings(object):
     REQUIRED_FIELDS = (
-        "log_file",
         "mqtt_host",
         "mqtt_port",
         "mqtt_ssl",
