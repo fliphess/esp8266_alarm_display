@@ -89,8 +89,8 @@ void save_wifi_config_callback ()
 void tick()
 {
     // * Toggle state
-    int state = digitalRead(BUILTIN_LED);    // * Get the current state of GPIO1 pin
-    digitalWrite(BUILTIN_LED, !state);       // * Set pin to the opposite state
+    int state = digitalRead(LED_BUILTIN);    // * Get the current state of GPIO1 pin
+    digitalWrite(LED_BUILTIN, !state);       // * Set pin to the opposite state
 }
 
 // **********************************
@@ -549,7 +549,7 @@ void setup()
     keypad.begin();
 
     // * Set led pin as output
-    pinMode(BUILTIN_LED, OUTPUT);
+    pinMode(LED_BUILTIN, OUTPUT);
 
     // * Start ticker with 0.5 because we start in AP mode and try to connect
     ticker.attach(0.6, tick);
@@ -630,7 +630,7 @@ void setup()
 
     // * Keep LED on
     ticker.detach();
-    digitalWrite(BUILTIN_LED, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
 
     // * Configure OTA
     setup_ota();
