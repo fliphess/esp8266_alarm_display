@@ -219,7 +219,7 @@ void set_alarm_state(char* alarm_state)
     }
 }
 
-// * Process the incoming json message by dispatching each element to it's own library function
+// * Process the incoming json message
 bool process_json_input(char* payload)
 {
     StaticJsonBuffer<BUFFER_SIZE> jsonBuffer;
